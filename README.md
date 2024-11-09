@@ -1,2 +1,4 @@
 # homo-sapiens
-Este projeto fala sobre primatas e suas características peculiares
+Este projeto mostras primatas e suas características peculiares
+
+## uga uga 
