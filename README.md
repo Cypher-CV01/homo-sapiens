@@ -1,2 +1,2 @@
 # homo-sapiens
-primatas
+Este projeto fala sobre primatas e suas características peculiares
