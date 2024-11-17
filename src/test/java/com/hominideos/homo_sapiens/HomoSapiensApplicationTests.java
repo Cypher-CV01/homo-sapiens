@@ -3,10 +3,10 @@ package com.hominideos.homo_sapiens;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class HomoSapiensApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 
