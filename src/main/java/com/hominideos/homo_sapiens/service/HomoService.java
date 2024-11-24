@@ -7,18 +7,24 @@ import com.hominideos.homo_sapiens.model.Homo;
 @Service	
 public class HomoService {
 	
-	public Homo criarHomo(long tamanhoCranio) {
-		Homo pessoa = new Homo();
-		pessoa.setTamanhoCranio(tamanhoCranio);
+	public Homo criarHomo(long tamanhoCranio, long tamanhoBraco, long peso) {
 		
-		Homo cearense = new Homo();
-		cearense.setTamanhoCranio(1700);
+		Homo florence = new Homo();
+		florence.setCmCubicoCranio(tamanhoCranio);
+		florence.setCmBraco(tamanhoBraco);
+		florence.setPeso(peso);
+		
+		Homo cicero = new Homo();
+		cicero.setCmCubicoCranio(1700);
+		cicero.setCmBraco(80);
 		
 		System.out.println("o tamanho medio do cranio de um ser humano, fica em media de 1300 cm³ a 1400 cm³");
-		System.out.println("o tamanho do cranio de um cearense é em media de " + cearense.getTamanhoCranio());
-		
-		return pessoa;
+		System.out.println("o tamanho do cranio do cicero é de " + cicero.getCmCubicoCranio() + " centimetros cubicos, vulgarmente conhecido como cabeção");
+		System.out.println("o tamanho do braço do cicero é igual a " + cicero.getCmBraco() + " centimetros");
+
+		return florence;
 		
 	}
+	
 }
 

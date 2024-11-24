@@ -18,8 +18,8 @@ public class HomoController {
 	
 	@GetMapping("/new")
 	Homo criarHomo() {
-		Homo pessoa = services.criarHomo(86754);
-		return pessoa;
+		Homo florence = services.criarHomo(1400, 80, 83);
+		return florence;
 		
 	}
 }
