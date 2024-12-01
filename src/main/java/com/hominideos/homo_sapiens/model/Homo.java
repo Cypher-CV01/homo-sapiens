@@ -5,7 +5,10 @@ public class Homo {
 	private long cmCubicoCranio;
 	private long cmBraco;
 	private long peso;
-
+	private int cmPe;
+	private String breveDescring;
+		
+	
 	public long getCmCubicoCranio() {
 		return cmCubicoCranio;
 	}
@@ -28,6 +31,22 @@ public class Homo {
 
 	public void setPeso(long peso) {
 		this.peso = peso;
+	}
+
+	public int getCmPe() {
+		return cmPe;
+	}
+
+	public void setCmPe(int cmPe) {
+		this.cmPe = cmPe;
+	}
+
+	public String getBreveDescring() {
+		return breveDescring;
+	}
+
+	public void setBreveDescring(String breveDescring) {
+		this.breveDescring = breveDescring;
 	}
 
 }
