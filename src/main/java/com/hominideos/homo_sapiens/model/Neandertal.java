@@ -1,5 +1,11 @@
 package com.hominideos.homo_sapiens.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("neandertal")
+
 public class Neandertal extends Homo {
 	
 	private Integer tamanhoTribo;
