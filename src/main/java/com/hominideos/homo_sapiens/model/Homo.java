@@ -17,6 +17,8 @@ public abstract class Homo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String nome;
+	private String sobrenome;
 	private Float cmCubicoCranio;
 	private Float cmBraco;
 	private Float peso;
@@ -24,6 +26,30 @@ public abstract class Homo {
 	private String breveDescring;
 	private String postura;
 	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
 
 	public Float getCmCubicoCranio() {
 		return cmCubicoCranio;
@@ -65,12 +91,11 @@ public abstract class Homo {
 		this.breveDescring = breveDescring;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	@Override
+	public String toString() {
+		return "Homo [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cmCubicoCranio=" + cmCubicoCranio
+				+ ", cmBraco=" + cmBraco + ", peso=" + peso + ", cmPe=" + cmPe + ", breveDescring=" + breveDescring
+				+ "]";
 	}
 
 	public String getPostura() {
