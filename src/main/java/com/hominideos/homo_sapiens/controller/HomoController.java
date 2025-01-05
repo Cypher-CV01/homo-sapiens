@@ -18,8 +18,10 @@ public class HomoController {
 
 	@GetMapping("/new")
 	Neandertal criarNeandertal() {
-		Neandertal florence = services.criarNeandertal(1400.0f, 80.0f, 83.0f, 28.5f, "tipo de primata de cabeça grande");
+		Neandertal florence = services.criarNeandertal(1400.0f, 80.0f, 83.0f, 28.5f, "tipo de primata de cabeça grande", "bípedi");
 		return florence;
 
 	}
+	
 }
+

@@ -22,6 +22,8 @@ public abstract class Homo {
 	private Float peso;
 	private Float cmPe;
 	private String breveDescring;
+	private String postura;
+	
 
 	public Float getCmCubicoCranio() {
 		return cmCubicoCranio;
@@ -69,6 +71,14 @@ public abstract class Homo {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getPostura() {
+		return postura;
+	}
+
+	public void setPostura(String postura) {
+		this.postura = postura;
 	}
 
 }
