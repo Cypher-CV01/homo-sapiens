@@ -8,10 +8,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "especie", discriminatorType = DiscriminatorType.STRING)
+@Getter
+@Setter
+@ToString
 public abstract class Homo {
 
 	@Id
@@ -25,85 +31,4 @@ public abstract class Homo {
 	private Float cmPe;
 	private String breveDescring;
 	private String postura;
-	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
-
-	public Float getCmCubicoCranio() {
-		return cmCubicoCranio;
-	}
-
-	public void setCmCubicoCranio(Float cmCubicoCranio) {
-		this.cmCubicoCranio = cmCubicoCranio;
-	}
-
-	public Float getCmBraco() {
-		return cmBraco;
-	}
-
-	public void setCmBraco(Float cmBraco) {
-		this.cmBraco = cmBraco;
-	}
-
-	public Float getPeso() {
-		return peso;
-	}
-
-	public void setPeso(Float peso) {
-		this.peso = peso;
-	}
-
-	public Float getCmPe() {
-		return cmPe;
-	}
-
-	public void setCmPe(Float cmPe) {
-		this.cmPe = cmPe;
-	}
-
-	public String getBreveDescring() {
-		return breveDescring;
-	}
-
-	public void setBreveDescring(String breveDescring) {
-		this.breveDescring = breveDescring;
-	}
-
-	@Override
-	public String toString() {
-		return "Homo [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cmCubicoCranio=" + cmCubicoCranio
-				+ ", cmBraco=" + cmBraco + ", peso=" + peso + ", cmPe=" + cmPe + ", breveDescring=" + breveDescring
-				+ "]";
-	}
-
-	public String getPostura() {
-		return postura;
-	}
-
-	public void setPostura(String postura) {
-		this.postura = postura;
-	}
-
 }
