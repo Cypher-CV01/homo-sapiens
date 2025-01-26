@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,6 +40,12 @@ public class NeandertalController {
 	public List<Neandertal> findByTamanhoTribo(@PathVariable("size") Integer tamanho) {
 		return service.findByTamanhoTribo(tamanho);
 	}
+
+	@PutMapping("/atualizar-neandertal")
+	public Neandertal atualizarNeandertal(@RequestBody Neandertal individuo) {
+		return service.atualizarNeandertal(individuo);
+	}
+
 	
 	
 	

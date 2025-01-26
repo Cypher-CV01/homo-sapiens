@@ -36,5 +36,19 @@ public class NeandertalService {
 	public List<Neandertal> findByTamanhoTribo (Integer tamanho) {
 		return repository.findByTamanhoTriboIs(tamanho);
 	}
+	
+	public Neandertal atualizarNeandertal (Neandertal individuo) {
+		var veioDoBanco = repository.findOneById(individuo.getId());
+		veioDoBanco.setBreveDescring(individuo.getBreveDescring());
+		veioDoBanco.setCmBraco(individuo.getCmBraco());
+		veioDoBanco.setCmCubicoCranio(individuo.getCmCubicoCranio());
+		veioDoBanco.setCmPe(individuo.getCmPe());
+		veioDoBanco.setNome(individuo.getNome());
+		veioDoBanco.setPeso(individuo.getPeso());
+		veioDoBanco.setPostura(individuo.getPostura());
+		veioDoBanco.setSobrenome(individuo.getSobrenome());
+		veioDoBanco.setTamanhoTribo(individuo.getTamanhoTribo());
+		return repository.save(veioDoBanco);
+	}
 
 }

@@ -12,9 +12,9 @@ public interface NeandertalRepository extends JpaRepository<Neandertal, Long> {
 
 	List<Neandertal> findByTamanhoTriboIs(Integer tamanho);
 	
+	Neandertal findOneByNomeAndSobrenome(String nome, String sobrenome);
 	
-	
-	
+	Neandertal findOneById(Long id);
 	
 }
 
