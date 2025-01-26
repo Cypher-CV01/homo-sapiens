@@ -13,16 +13,28 @@ import com.hominideos.homo_sapiens.repository.NeandertalRepository;
 @Service
 public class NeandertalService {
 
-	// A Anotação @Autowired indica que a classe (ou a interface Repository) 
+	// A Anotação @Autowired indica que a classe (ou a interface Repository)
 	// deve ser carregada para usar dentro da classe
 	@Autowired
 	private NeandertalRepository repository;
 
-	// Método que lista todos os Neandertais 
+	// Método que lista todos os Neandertais
 	// que estiverem cadastrados no banco de dados
 	public List<Neandertal> listarNeandertais() {
 		return repository.findAll();
 
+	}
+
+	public Neandertal criarNeandertal(String nome, String sobrenome, Integer tamanhoTribo) {
+		var individuo = new Neandertal();
+		individuo.setNome(nome);
+		individuo.setSobrenome(sobrenome);
+		individuo.setTamanhoTribo(tamanhoTribo);
+		return repository.save(individuo);
+	}
+	
+	public List<Neandertal> findByTamanhoTribo (Integer tamanho) {
+		return repository.findByTamanhoTriboIs(tamanho);
 	}
 
 }

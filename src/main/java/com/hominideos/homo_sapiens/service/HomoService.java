@@ -3,6 +3,7 @@ package com.hominideos.homo_sapiens.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hominideos.homo_sapiens.model.Habilis;
 import com.hominideos.homo_sapiens.model.Neandertal;
 import com.hominideos.homo_sapiens.repository.NeandertalRepository;
 
@@ -12,7 +13,7 @@ public class HomoService {
 	@Autowired
 	private NeandertalRepository repository;
 
-	public Neandertal criarNeandertal(Float cmCubicoCranio, Float cmBraco, Float peso, Float cmPe, String breveDescring) {
+	public Neandertal criarNeandertal(Float cmCubicoCranio, Float cmBraco, Float peso, Float cmPe, String breveDescring, String postura) {
 
 		Neandertal florence = new Neandertal();
 		florence.setCmCubicoCranio(cmCubicoCranio);
@@ -20,6 +21,7 @@ public class HomoService {
 		florence.setPeso(peso);
 		florence.setCmPe(cmPe);
 		florence.setBreveDescring(breveDescring);
+		florence.setPostura(postura);
 
 //		repository.save(florence);
 
@@ -29,6 +31,7 @@ public class HomoService {
 		cicero.setCmPe(cmPe);
 		cicero.setPeso(peso);
 		cicero.setBreveDescring(breveDescring);
+		cicero.setPostura(postura);
 		
 		repository.save(cicero);
 
@@ -38,7 +41,7 @@ public class HomoService {
 		arthur.setPeso(78.0f);
 		arthur.setCmPe(38.0f);
 		arthur.setBreveDescring("tipo de ser humano, que gosta de dinossauros");
-		
+		arthur.setPostura(postura);
 		
 		System.out.println("o tamanho medio do cranio de um ser humano, fica em media de 1300 cm³ a 1400 cm³");
 		System.out.println("o tamanho do cranio do cicero é de " + cicero.getCmCubicoCranio()
@@ -47,7 +50,23 @@ public class HomoService {
 		System.out.println(arthur.toString());
 
 		return florence;
+		
+		
 
+	}
+	public Habilis criarHabilis(Float cmCubicoCranio, Float cmBraco, Float peso, Float cmPe, String breveDescring, String postura) {
+		
+		Habilis Darel = new Habilis();
+		
+		Darel.setCmCubicoCranio(1700.0f);
+		Darel.setCmBraco(80.0f);
+		Darel.setCmPe(cmPe);
+		Darel.setPeso(peso);
+		Darel.setBreveDescring(breveDescring);
+		Darel.setPostura(postura);
+		
+		return null;
+		
 	}
 
 }
