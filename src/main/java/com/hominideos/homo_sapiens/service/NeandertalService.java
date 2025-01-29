@@ -32,12 +32,12 @@ public class NeandertalService {
 		individuo.setTamanhoTribo(tamanhoTribo);
 		return repository.save(individuo);
 	}
-	
-	public List<Neandertal> findByTamanhoTribo (Integer tamanho) {
+
+	public List<Neandertal> findByTamanhoTribo(Integer tamanho) {
 		return repository.findByTamanhoTriboIs(tamanho);
 	}
-	
-	public Neandertal atualizarNeandertal (Neandertal individuo) {
+
+	public Neandertal atualizarNeandertal(Neandertal individuo) {
 		var veioDoBanco = repository.findOneById(individuo.getId());
 		veioDoBanco.setBreveDescring(individuo.getBreveDescring());
 		veioDoBanco.setCmBraco(individuo.getCmBraco());
@@ -49,6 +49,15 @@ public class NeandertalService {
 		veioDoBanco.setSobrenome(individuo.getSobrenome());
 		veioDoBanco.setTamanhoTribo(individuo.getTamanhoTribo());
 		return repository.save(veioDoBanco);
+	}
+
+	public void deletarNeandertal(Long id) {
+		var exeisteNoBanco = repository.findOneById(id);
+		if (exeisteNoBanco == null) {
+			throw new RuntimeException("Neasndertal não encontrado no banco de dados");
+		} else {
+			repository.deleteById(id);
+		}
 	}
 
 }
