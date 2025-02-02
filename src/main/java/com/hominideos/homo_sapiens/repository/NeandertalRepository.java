@@ -16,6 +16,7 @@ public interface NeandertalRepository extends JpaRepository<Neandertal, Long> {
 	
 	Neandertal findOneById(Long id);
 	
+	
 }
 
 
