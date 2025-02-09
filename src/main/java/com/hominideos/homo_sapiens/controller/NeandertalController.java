@@ -34,8 +34,7 @@ public class NeandertalController {
 	}
 
 	@PostMapping("/novo-neandertal")
-	public Neandertal criarNeandertal(@RequestParam String nome, @RequestParam String sobrenome,
-			@RequestParam Integer tamanhoTribo) {
+	public Neandertal criarNeandertal(@RequestParam String nome, @RequestParam String sobrenome, @RequestParam Integer tamanhoTribo) {
 		return service.criarNeandertal(nome, sobrenome, tamanhoTribo);
 	}
 
@@ -51,14 +50,12 @@ public class NeandertalController {
 
 	@DeleteMapping("/delete-neandertal")
 	public ResponseEntity<String> deletarNeandertal(@RequestParam Long id) {
-
 		try {
 			service.excluirNeandertal(id);
 			return new ResponseEntity<String>("Neandedrtal deletado com sucesso", HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
-
 	}
 
 }

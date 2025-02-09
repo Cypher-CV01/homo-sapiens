@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hominideos.homo_sapiens.model.Neandertal;
 import com.hominideos.homo_sapiens.repository.NeandertalRepository;
+import com.hominideos.homo_sapiens.utils.HomoUtils;
 
 // Classe anotada como @Service do Spring
 // Ela pode ser carregada por outras classes para ser usada sempre que necessário
@@ -28,8 +29,8 @@ public class NeandertalService {
 	public Neandertal criarNeandertal(String nome, String sobrenome, Integer tamanhoTribo) {
 		var individuo = new Neandertal();
 		individuo.setNome(nome);
-		individuo.setSobrenome(sobrenome);
-		individuo.setTamanhoTribo(tamanhoTribo);
+		individuo.setSobrenome(HomoUtils.gerarSobrenome(sobrenome));
+		individuo.setTamanhoTribo(HomoUtils.gerarTamanhoTriboAleatorio());
 		return repository.save(individuo);
 	}
 

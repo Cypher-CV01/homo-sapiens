@@ -32,7 +32,7 @@ public class HomoService {
 		cicero.setPeso(peso);
 		cicero.setBreveDescring(breveDescring);
 		cicero.setPostura(postura);
-		
+
 		repository.save(cicero);
 
 		Neandertal arthur = new Neandertal();
@@ -50,8 +50,6 @@ public class HomoService {
 		System.out.println(arthur.toString());
 
 		return florence;
-		
-		
 
 	}
 	public Habilis criarHabilis(Float cmCubicoCranio, Float cmBraco, Float peso, Float cmPe, String breveDescring, String postura) {
