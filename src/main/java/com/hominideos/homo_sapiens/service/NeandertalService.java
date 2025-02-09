@@ -51,7 +51,7 @@ public class NeandertalService {
 		return repository.save(veioDoBanco);
 	}
 
-	public void deletarNeandertal(Long id) {
+	public void excluirNeandertal(Long id) {
 		var exeisteNoBanco = repository.findOneById(id);
 		if (exeisteNoBanco == null) {
 			throw new RuntimeException("Neasndertal não encontrado no banco de dados");

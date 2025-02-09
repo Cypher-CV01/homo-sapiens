@@ -53,7 +53,7 @@ public class NeandertalController {
 	public ResponseEntity<String> deletarNeandertal(@RequestParam Long id) {
 
 		try {
-			service.deletarNeandertal(id);
+			service.excluirNeandertal(id);
 			return new ResponseEntity<String>("Neandedrtal deletado com sucesso", HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
