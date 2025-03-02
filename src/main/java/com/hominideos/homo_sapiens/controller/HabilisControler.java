@@ -27,7 +27,7 @@ public class HabilisControler {
 	private HabilisService service;
 	
 	@GetMapping("/buscar-habilis")
-	public List<Habilis > buscarHabilis() {
+	public List<Habilis> buscarHabilis() {
 		return service.buscarHabilis(); 
 	}
 	
@@ -38,7 +38,7 @@ public class HabilisControler {
 	}
 	
 	@PutMapping("/atualizar-habilis")
-	public Habilis atualizarNeandertal(@RequestBody Habilis habilis) {
+	public Habilis atualizarHabilis(@RequestBody Habilis habilis) {
 		
 		return service.atualizarHabilis(habilis);
 	}
