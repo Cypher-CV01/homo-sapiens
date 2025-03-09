@@ -11,10 +11,9 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @Getter
 @Setter
-
-public class Florisience extends Homo{
+public class Florisience extends Homo {
 
 	private Float altura;
 	private FerramentaFlorisience ferramenta;
-	
+
 }

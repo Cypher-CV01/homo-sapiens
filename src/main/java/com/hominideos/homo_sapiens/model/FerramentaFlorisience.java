@@ -4,6 +4,6 @@ public enum FerramentaFlorisience {
 	LASCAS_DE_PEDRA,
 	BIFACES_SIMPLES,
 	RASPADORES,
-	PONTAS_DE_lANÇA,
+	PONTAS_DE_lANCA,
 	CORTADORES_DE_CARNE;
 }
