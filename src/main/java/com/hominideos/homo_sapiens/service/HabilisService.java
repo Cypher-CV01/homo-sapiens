@@ -24,10 +24,10 @@ public class HabilisService {
 		habilis.setNome(nome);
 		habilis.setSobrenome(sobrenome);
 		habilis.setHabilidade(habilidade);
-		
-		return repository.save(habilis);		
+
+		return repository.save(habilis);
 	} 
-	
+
 	public Habilis atualizarHabilis(Habilis individuo) {
 		var habilisDoBanco = repository.findOneById(individuo.getId());
 		habilisDoBanco.setBreveDescring(individuo.getBreveDescring());
@@ -40,10 +40,9 @@ public class HabilisService {
 		habilisDoBanco.setSobrenome(individuo.getSobrenome());
 		habilisDoBanco.setTamanhoGrupo(individuo.getTamanhoGrupo());
 		habilisDoBanco.setHabilidade(individuo.getHabilidade());
-		return repository.save(habilisDoBanco);		
-		
+		return repository.salvar(habilisDoBanco);
 	}
-	
+
 	public void deletarHabilis(Long id) {
 		var habilisNoBanco = repository.findOneById(id);
 		if (habilisNoBanco == null) {
