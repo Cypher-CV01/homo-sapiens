@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.hominideos.homo_sapiens.model.Denisovano;
 import com.hominideos.homo_sapiens.model.DentesDenisovano;
 import com.hominideos.homo_sapiens.service.DenisovanoService;
-import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 @RequestMapping("/denisovanos")
