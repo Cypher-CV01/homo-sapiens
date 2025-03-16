@@ -60,5 +60,9 @@ public class NeandertalService {
 			repository.deleteById(id);
 		}
 	}
+	
+	public Neandertal salvarNoBanco(Neandertal neander) {
+		return repository.save(neander);
+	}
 
 }
