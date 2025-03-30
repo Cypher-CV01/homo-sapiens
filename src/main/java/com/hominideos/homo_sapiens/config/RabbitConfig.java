@@ -10,12 +10,12 @@ import org.springframework.context.annotation.Configuration;
 @EnableRabbit
 public class RabbitConfig {
 
-	@Value("${amqp.neandertal.producer-queue}")
-	private String Fila_Retorno_Neandertal;
+	@Value("${amqp.neandertal.producerQueue}")
+	private String filaRetornoNeandertal;
 
 	@Bean("retornoNeandertal")
 	Queue queueRetornoNeanderal() {
-		return new Queue(Fila_Retorno_Neandertal, true);
+		return new Queue(filaRetornoNeandertal, true);
 	}
 
 }
