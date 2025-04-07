@@ -31,4 +31,8 @@ public abstract class Homo {
 	private Float cmPe;
 	private String breveDescring;
 	private String postura;
+	private Float altura;
+	private String estatura;
+	//private Estatura estatura;  variavel em desuso 	
+	
 }

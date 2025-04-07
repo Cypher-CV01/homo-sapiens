@@ -22,25 +22,23 @@ public class HomoService {
 		florence.setCmPe(cmPe);
 		florence.setBreveDescring(breveDescring);
 		florence.setPostura(postura);
-
-//		repository.save(florence);
+		repository.save(florence);
 
 		Neandertal cicero = new Neandertal();
-		cicero.setCmCubicoCranio(1700.0f);
-		cicero.setCmBraco(80.0f);
+		cicero.setCmCubicoCranio(cmCubicoCranio);
+		cicero.setCmBraco(cmBraco);
 		cicero.setCmPe(cmPe);
 		cicero.setPeso(peso);
 		cicero.setBreveDescring(breveDescring);
 		cicero.setPostura(postura);
-
 		repository.save(cicero);
 
 		Neandertal arthur = new Neandertal();
-		arthur.setCmBraco(60.0f);
-		arthur.setCmCubicoCranio(1500.0f);
-		arthur.setPeso(78.0f);
-		arthur.setCmPe(38.0f);
-		arthur.setBreveDescring("tipo de ser humano, que gosta de dinossauros");
+		arthur.setCmBraco(cmBraco);
+		arthur.setCmCubicoCranio(cmCubicoCranio);
+		arthur.setPeso(peso);
+		arthur.setCmPe(cmPe);
+		arthur.setBreveDescring(breveDescring);
 		arthur.setPostura(postura);
 		
 		System.out.println("o tamanho medio do cranio de um ser humano, fica em media de 1300 cm³ a 1400 cm³");
@@ -48,7 +46,6 @@ public class HomoService {
 				+ " centimetros cubicos, vulgarmente conhecido como cabeção");
 		System.out.println("o tamanho do braço do cicero é igual a " + cicero.getCmBraco() + " centimetros");
 		System.out.println(arthur.toString());
-
 		return florence;
 
 	}
@@ -56,8 +53,8 @@ public class HomoService {
 		
 		Habilis Darel = new Habilis();
 		
-		Darel.setCmCubicoCranio(1700.0f);
-		Darel.setCmBraco(80.0f);
+		Darel.setCmCubicoCranio(cmCubicoCranio);
+		Darel.setCmBraco(cmBraco);
 		Darel.setCmPe(cmPe);
 		Darel.setPeso(peso);
 		Darel.setBreveDescring(breveDescring);

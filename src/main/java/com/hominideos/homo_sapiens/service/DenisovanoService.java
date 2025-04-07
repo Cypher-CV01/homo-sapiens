@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hominideos.homo_sapiens.model.Denisovano;
 import com.hominideos.homo_sapiens.model.DentesDenisovano;
 import com.hominideos.homo_sapiens.repository.DenisovanoRepository;
@@ -19,13 +18,31 @@ public class DenisovanoService {
 		return repository.findAll();
 	}
 
-	public Denisovano criarDenisovano(String nome, String sobrenome, DentesDenisovano dentes) {
+	public Denisovano criarDenisovano(String nome, String sobrenome, DentesDenisovano dentes, Float altura, String estatura) {
 		var denisovano = new Denisovano();
 		denisovano.setNome(nome);
 		denisovano.setSobrenome(sobrenome);
 		denisovano.setDentes(dentes);
-
+		denisovano.setAltura(altura);
+		
+		try {
+	        if (altura == null) {
+	            throw new IllegalArgumentException("A altura não pode ser nula.");
+	        }
+	        if (altura <= 1.40) {
+	            denisovano.setEstatura("baixo");
+	        } else if (altura >= 1.41 && altura <= 1.70) {
+	            denisovano.setEstatura("mediando");
+	        } else {
+	            denisovano.setEstatura("alto");
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Ocorreu um erro ao tentar definir a estatura: " + e.getMessage());
+	    }
+		
 		return repository.save(denisovano);
+		
+		
 	}
 
 	public Denisovano atualizarDenisovano(Denisovano individuo) {

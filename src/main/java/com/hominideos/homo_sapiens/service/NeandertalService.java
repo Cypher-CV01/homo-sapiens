@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hominideos.homo_sapiens.model.Neandertal;
 import com.hominideos.homo_sapiens.repository.NeandertalRepository;
 import com.hominideos.homo_sapiens.utils.HomoUtils;
+//import com.hominideos.homo_sapiens.model.Estatura;
 
 // Classe anotada como @Service do Spring
 // Ela pode ser carregada por outras classes para ser usada sempre que necessário
@@ -26,35 +27,53 @@ public class NeandertalService {
 
 	}
 
-	public Neandertal criarNeandertal(String nome, String sobrenome, Integer tamanhoTribo) {
-		var individuo = new Neandertal();
-		individuo.setNome(nome);
-		individuo.setSobrenome(HomoUtils.gerarSobrenome(sobrenome));
-		individuo.setTamanhoTribo(HomoUtils.gerarTamanhoTriboAleatorio());
-		return repository.save(individuo);
+	public Neandertal criarNeandertal(String nome, String sobrenome, Integer tamanhoTribo, Float altura, String estatura) {
+	    var neandertal = new Neandertal();
+	    neandertal.setNome(nome);
+	    neandertal.setSobrenome(HomoUtils.gerarSobrenome(sobrenome));
+	    neandertal.setTamanhoTribo(HomoUtils.gerarTamanhoTriboAleatorio());
+	    neandertal.setAltura(altura);
+
+	    try {
+	        if (altura == null) {
+	            throw new IllegalArgumentException("A altura não pode ser nula.");
+	        }
+	        if (altura <= 1.20) {
+	            neandertal.setEstatura("baixo");
+	        } else if (altura >= 1.21 && altura <= 1.70) {
+	            neandertal.setEstatura("mediando");
+	        } else {
+	            neandertal.setEstatura("alto");
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Ocorreu um erro ao tentar definir a estatura: " + e.getMessage());
+	    }
+
+	    return repository.save(neandertal);
 	}
+
 
 	public List<Neandertal> findByTamanhoTribo(Integer tamanho) {
 		return repository.findByTamanhoTriboIs(tamanho);
 	}
 
 	public Neandertal atualizarNeandertal(Neandertal individuo) {
-		var veioDoBanco = repository.findOneById(individuo.getId());
-		veioDoBanco.setBreveDescring(individuo.getBreveDescring());
-		veioDoBanco.setCmBraco(individuo.getCmBraco());
-		veioDoBanco.setCmCubicoCranio(individuo.getCmCubicoCranio());
-		veioDoBanco.setCmPe(individuo.getCmPe());
-		veioDoBanco.setNome(individuo.getNome());
-		veioDoBanco.setPeso(individuo.getPeso());
-		veioDoBanco.setPostura(individuo.getPostura());
-		veioDoBanco.setSobrenome(individuo.getSobrenome());
-		veioDoBanco.setTamanhoTribo(individuo.getTamanhoTribo());
-		return repository.save(veioDoBanco);
+		var neandertalDoBanco = repository.findOneById(individuo.getId());
+		neandertalDoBanco.setBreveDescring(individuo.getBreveDescring());
+		neandertalDoBanco.setCmBraco(individuo.getCmBraco());
+		neandertalDoBanco.setCmCubicoCranio(individuo.getCmCubicoCranio());
+		neandertalDoBanco.setCmPe(individuo.getCmPe());
+		neandertalDoBanco.setNome(individuo.getNome());
+		neandertalDoBanco.setPeso(individuo.getPeso());
+		neandertalDoBanco.setPostura(individuo.getPostura());
+		neandertalDoBanco.setSobrenome(individuo.getSobrenome());
+		neandertalDoBanco.setTamanhoTribo(individuo.getTamanhoTribo());
+		return repository.save(neandertalDoBanco);
 	}
 
 	public void excluirNeandertal(Long id) {
-		var exeisteNoBanco = repository.findOneById(id);
-		if (exeisteNoBanco == null) {
+		var neandertalNoBanco = repository.findOneById(id);
+		if (neandertalNoBanco == null) {
 			throw new RuntimeException("Neasndertal não encontrado no banco de dados");
 		} else {
 			repository.deleteById(id);

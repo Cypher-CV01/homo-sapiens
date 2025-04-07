@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.hominideos.homo_sapiens.model.FerramentaFlorisience;
 import com.hominideos.homo_sapiens.model.Florisience;
 import com.hominideos.homo_sapiens.service.FlorisienceService;
@@ -31,10 +30,9 @@ public class FlorisienceController {
 	}
 	
 	@PostMapping("/novo-florisience")
-	public Florisience criarFlorisience(@RequestParam String nome, @RequestParam String sobrenome,
-			@RequestParam Float altura, @RequestParam FerramentaFlorisience ferramenta) {
+	public Florisience criarFlorisience(@RequestParam String nome, @RequestParam String sobrenome, @RequestParam FerramentaFlorisience ferramenta, @RequestParam Float altura) {
 
-		return service.criarFLorisience(nome, sobrenome, ferramenta, altura);
+		return service.criarFLorisience(nome, sobrenome, ferramenta, altura, null);
 	}
 	
 	@PutMapping("/atualizar-florisience")
