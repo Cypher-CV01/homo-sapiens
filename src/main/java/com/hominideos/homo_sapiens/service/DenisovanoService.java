@@ -9,7 +9,7 @@ import com.hominideos.homo_sapiens.model.DentesDenisovano;
 import com.hominideos.homo_sapiens.repository.DenisovanoRepository;
 
 @Service
-public class DenisovanoService {
+public class DenisovanoService extends HomoService{
 
 	@Autowired
 	private DenisovanoRepository repository;
@@ -24,22 +24,8 @@ public class DenisovanoService {
 		denisovano.setSobrenome(sobrenome);
 		denisovano.setDentes(dentes);
 		denisovano.setAltura(altura);
-		
-		try {
-	        if (altura == null) {
-	            throw new IllegalArgumentException("A altura não pode ser nula.");
-	        }
-	        if (altura <= 1.40) {
-	            denisovano.setEstatura("baixo");
-	        } else if (altura >= 1.41 && altura <= 1.70) {
-	            denisovano.setEstatura("mediando");
-	        } else {
-	            denisovano.setEstatura("alto");
-	        }
-	    } catch (Exception e) {
-	        System.out.println("Ocorreu um erro ao tentar definir a estatura: " + e.getMessage());
-	    }
-		
+		definirEstatura(denisovano, altura);
+						
 		return repository.save(denisovano);
 		
 		

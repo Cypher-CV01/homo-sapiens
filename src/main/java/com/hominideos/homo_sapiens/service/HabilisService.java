@@ -9,7 +9,7 @@ import com.hominideos.homo_sapiens.model.Habilis;
 import com.hominideos.homo_sapiens.repository.HabilisRepository;
 
 @Service
-public class HabilisService {
+public class HabilisService extends HomoService{
 
 	@Autowired
 	private HabilisRepository repository;
@@ -24,22 +24,8 @@ public class HabilisService {
 		habilis.setSobrenome(sobrenome);
 		habilis.setHabilidade(habilidade);
 		habilis.setAltura(altura);
-		
-		try {
-	        if (altura == null) {
-	            throw new IllegalArgumentException("A altura não pode ser nula.");
-	        }
-	        if (altura <= 1.40) {
-	            habilis.setEstatura("baixo");
-	        } else if (altura >= 1.41 && altura <= 1.70) {
-	            habilis.setEstatura("mediando");
-	        } else {
-	            habilis.setEstatura("alto");
-	        }
-	    } catch (Exception e) {
-	        System.out.println("Ocorreu um erro ao tentar definir a estatura: " + e.getMessage());
-	    }
-				
+		definirEstatura(habilis, altura);
+			
 		return repository.save(habilis);
 	} 
 

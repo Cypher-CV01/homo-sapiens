@@ -1,8 +1,11 @@
 package com.hominideos.homo_sapiens.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -32,7 +35,9 @@ public abstract class Homo {
 	private String breveDescring;
 	private String postura;
 	private Float altura;
-	private String estatura;
-	//private Estatura estatura;  variavel em desuso 	
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false, length = 20)
+	private Estatura estatura;	
 	
 }

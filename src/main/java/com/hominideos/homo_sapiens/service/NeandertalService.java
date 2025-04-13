@@ -13,7 +13,7 @@ import com.hominideos.homo_sapiens.utils.HomoUtils;
 // Classe anotada como @Service do Spring
 // Ela pode ser carregada por outras classes para ser usada sempre que necessário
 @Service
-public class NeandertalService {
+public class NeandertalService extends HomoService{
 
 	// A Anotação @Autowired indica que a classe (ou a interface Repository)
 	// deve ser carregada para usar dentro da classe
@@ -33,23 +33,9 @@ public class NeandertalService {
 	    neandertal.setSobrenome(HomoUtils.gerarSobrenome(sobrenome));
 	    neandertal.setTamanhoTribo(HomoUtils.gerarTamanhoTriboAleatorio());
 	    neandertal.setAltura(altura);
-
-	    try {
-	        if (altura == null) {
-	            throw new IllegalArgumentException("A altura não pode ser nula.");
-	        }
-	        if (altura <= 1.20) {
-	            neandertal.setEstatura("baixo");
-	        } else if (altura >= 1.21 && altura <= 1.70) {
-	            neandertal.setEstatura("mediando");
-	        } else {
-	            neandertal.setEstatura("alto");
-	        }
-	    } catch (Exception e) {
-	        System.out.println("Ocorreu um erro ao tentar definir a estatura: " + e.getMessage());
-	    }
-
-	    return repository.save(neandertal);
+	  	definirEstatura(neandertal, altura);
+	  	
+	  	return repository.save(neandertal);
 	}
 
 

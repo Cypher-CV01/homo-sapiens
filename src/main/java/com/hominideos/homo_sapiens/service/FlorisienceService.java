@@ -9,7 +9,7 @@ import com.hominideos.homo_sapiens.model.Florisience;
 import com.hominideos.homo_sapiens.repository.FlorisienceRepository;
 
 @Service
-public class FlorisienceService {
+public class FlorisienceService extends HomoService {
 	
 	@Autowired
 	private FlorisienceRepository repository;
@@ -24,21 +24,7 @@ public class FlorisienceService {
 		florisience.setSobrenome(sobrenome);
 		florisience.setFerramenta(ferramenta);
 		florisience.setAltura(altura);
-		
-		try {
-	        if (altura == null) {
-	            throw new IllegalArgumentException("A altura não pode ser nula.");
-	        }
-	        if (altura <= 0.50) {
-	            florisience.setEstatura("baixo");
-	        } else if (altura >= 0.51 && altura <= 0.80) {
-	            florisience.setEstatura("mediando");
-	        } else {
-	            florisience.setEstatura("alto");
-	        }
-	    } catch (Exception e) {
-	        System.out.println("Ocorreu um erro ao tentar definir a estatura: " + e.getMessage());
-	    }
+		definirEstatura(florisience, altura);
 		
 		return repository.save(florisience);
 	}
