@@ -4,13 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hominideos.homo_sapiens.model.FerramentaFlorisience;
 import com.hominideos.homo_sapiens.model.Florisience;
 import com.hominideos.homo_sapiens.repository.FlorisienceRepository;
 
 @Service
-public class FlorisienceService {
+public class FlorisienceService extends HomoService {
 	
 	@Autowired
 	private FlorisienceRepository repository;
@@ -19,13 +18,13 @@ public class FlorisienceService {
 		return repository.findAll();	
 	}
 	
-	public Florisience criarFLorisience (String nome, String sobrenome, FerramentaFlorisience ferramenta, Float altura) {
+	public Florisience criarFLorisience (String nome, String sobrenome, FerramentaFlorisience ferramenta, Float altura, String estatura) {
 		var florisience = new Florisience();
 		florisience.setNome(nome);
 		florisience.setSobrenome(sobrenome);
 		florisience.setFerramenta(ferramenta);
 		florisience.setAltura(altura);
-		
+		definirEstatura(florisience, altura);
 		
 		return repository.save(florisience);
 	}

@@ -4,13 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hominideos.homo_sapiens.model.Denisovano;
 import com.hominideos.homo_sapiens.model.DentesDenisovano;
 import com.hominideos.homo_sapiens.repository.DenisovanoRepository;
 
 @Service
-public class DenisovanoService {
+public class DenisovanoService extends HomoService{
 
 	@Autowired
 	private DenisovanoRepository repository;
@@ -19,13 +18,17 @@ public class DenisovanoService {
 		return repository.findAll();
 	}
 
-	public Denisovano criarDenisovano(String nome, String sobrenome, DentesDenisovano dentes) {
+	public Denisovano criarDenisovano(String nome, String sobrenome, DentesDenisovano dentes, Float altura, String estatura) {
 		var denisovano = new Denisovano();
 		denisovano.setNome(nome);
 		denisovano.setSobrenome(sobrenome);
 		denisovano.setDentes(dentes);
-
+		denisovano.setAltura(altura);
+		definirEstatura(denisovano, altura);
+						
 		return repository.save(denisovano);
+		
+		
 	}
 
 	public Denisovano atualizarDenisovano(Denisovano individuo) {

@@ -33,9 +33,9 @@ public class DenisovanoController {
 
 	@PostMapping("/novo-denisovano")
 	public Denisovano criarDenisovano(@RequestParam String nome, @RequestParam String sobrenome,
-			@RequestParam String genetica, @RequestParam DentesDenisovano dentes) {
+			@RequestParam String genetica, @RequestParam DentesDenisovano dentes, @RequestParam Float altura) {
 
-		return service.criarDenisovano(nome, sobrenome, dentes);
+		return service.criarDenisovano(nome, sobrenome, dentes, altura, null);
 	}
 
 	@PutMapping("/atualizar-denisovano")

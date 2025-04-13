@@ -4,13 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hominideos.homo_sapiens.model.FerramentaHabilis;
 import com.hominideos.homo_sapiens.model.Habilis;
 import com.hominideos.homo_sapiens.repository.HabilisRepository;
 
 @Service
-public class HabilisService {
+public class HabilisService extends HomoService{
 
 	@Autowired
 	private HabilisRepository repository;
@@ -19,12 +18,14 @@ public class HabilisService {
 		return repository.findAll();
 	}
 		
-	public Habilis criarHabilis(String nome, String sobrenome, FerramentaHabilis habilidade) {
+	public Habilis criarHabilis(String nome, String sobrenome, FerramentaHabilis habilidade, Float altura, String estatura) {
 		var habilis = new Habilis();
 		habilis.setNome(nome);
 		habilis.setSobrenome(sobrenome);
 		habilis.setHabilidade(habilidade);
-
+		habilis.setAltura(altura);
+		definirEstatura(habilis, altura);
+			
 		return repository.save(habilis);
 	} 
 

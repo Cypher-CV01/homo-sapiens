@@ -19,5 +19,5 @@ spring:
     password: guest
 amqp:
     neandertal:
-      listener-queue: fila-novo-neandertal
-      producer-queue: fila-retorno-neandertal
+      listenerQueue: fila-novo-neandertal
+      producerQueue: fila-retorno-neandertal
