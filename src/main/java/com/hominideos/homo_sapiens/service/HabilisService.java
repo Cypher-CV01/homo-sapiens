@@ -52,5 +52,8 @@ public class HabilisService extends HomoService{
 			repository.deleteById(id);
 		}
 	}
+	public Habilis salvarNoBanco (Habilis habilis) {
+		return repository.save(habilis);
+	}
 	
 }

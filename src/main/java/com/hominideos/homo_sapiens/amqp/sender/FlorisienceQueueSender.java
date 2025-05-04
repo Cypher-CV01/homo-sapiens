@@ -1,4 +1,4 @@
-package com.hominideos.homo_sapiens.amqp;
+package com.hominideos.homo_sapiens.amqp.sender;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class QueueSender {
-
+public class FlorisienceQueueSender {
+	
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
 
 	@Autowired
-	@Qualifier("retornoNeandertal")
+	@Qualifier("retornoFlorisience")
 	private Queue queue;
 
 	public void send(String conteudo) {

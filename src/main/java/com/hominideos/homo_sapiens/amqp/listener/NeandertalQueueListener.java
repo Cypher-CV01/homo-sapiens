@@ -1,4 +1,4 @@
-package com.hominideos.homo_sapiens.amqp;
+package com.hominideos.homo_sapiens.amqp.listener;
 
 import java.time.LocalDateTime;
 
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.hominideos.homo_sapiens.amqp.sender.NeandertalQueueSender;
 import com.hominideos.homo_sapiens.dto.RetornoHominideoDto;
 import com.hominideos.homo_sapiens.dto.TipoHomo;
 import com.hominideos.homo_sapiens.model.Neandertal;
@@ -19,13 +20,13 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class QueueListener {
+public class NeandertalQueueListener {
 	
 	@Autowired
 	private NeandertalService service;
 	
 	@Autowired
-	private QueueSender sender;
+	private NeandertalQueueSender sender;
 
 	private ObjectMapper objectMapper = new ObjectMapper();
 	
@@ -65,4 +66,3 @@ public class QueueListener {
 	}
 	
 }
-	

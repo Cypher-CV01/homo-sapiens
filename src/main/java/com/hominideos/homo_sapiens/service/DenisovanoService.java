@@ -56,4 +56,8 @@ public class DenisovanoService extends HomoService{
 		}
 
 	}
+	
+	public Denisovano salvarNoBanco(Denisovano denisovano) {
+		return repository.save(denisovano);
+	}
 }

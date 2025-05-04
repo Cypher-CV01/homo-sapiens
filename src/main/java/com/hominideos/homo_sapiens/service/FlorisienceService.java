@@ -55,7 +55,10 @@ public class FlorisienceService extends HomoService {
 		}
 
 	}
-
+	public Florisience salvarNoBanco(Florisience florisience) {
+		return repository.save(florisience);
+	}
+	
 }
 
 
