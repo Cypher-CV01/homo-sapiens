@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.hominideos.homo_sapiens.model.FerramentaHabilis;
 import com.hominideos.homo_sapiens.model.Habilis;
 import com.hominideos.homo_sapiens.service.HabilisService;
@@ -27,18 +26,17 @@ public class HabilisControler {
 	private HabilisService service;
 	
 	@GetMapping("/buscar-habilis")
-	public List<Habilis > buscarHabilis() {
+	public List<Habilis> buscarHabilis() {
 		return service.buscarHabilis(); 
 	}
 	
 	@PostMapping("/novo-habilis")
-	public Habilis criarHabilis(@RequestParam String nome, @RequestParam String sobrenome, @RequestParam FerramentaHabilis habilidade) {
-	
-		return service.criarHabilis(nome, sobrenome, habilidade);
+	public Habilis criarHabilis(@RequestParam String nome, @RequestParam String sobrenome, @RequestParam FerramentaHabilis habilidade, @RequestParam Float altura) {
+		return service.criarHabilis(nome, sobrenome, habilidade, altura, null);
 	}
 	
 	@PutMapping("/atualizar-habilis")
-	public Habilis atualizarNeandertal(@RequestBody Habilis habilis) {
+	public Habilis atualizarHabilis(@RequestBody Habilis habilis) {
 		
 		return service.atualizarHabilis(habilis);
 	}

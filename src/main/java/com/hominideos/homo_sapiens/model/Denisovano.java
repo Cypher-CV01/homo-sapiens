@@ -10,16 +10,17 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@DiscriminatorValue("Habilis")
+@DiscriminatorValue("Denisovano")
 @ToString(callSuper = true)
 @Getter
 @Setter
-public class Habilis extends Homo {
 
-	private Integer tamanhoGrupo;
-	
+public class Denisovano extends Homo {
+
+	private String genetica;
+
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20)
-	private FerramentaHabilis habilidade;
+	private DentesDenisovano dentes;
 
 }

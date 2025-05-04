@@ -12,3 +12,24 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+amqp:
+  neandertal:
+    listenerQueue: hominideos.neandertal.entrada
+    retornoQueue: hominideos.neandertal.retorno
+
+  florisience:
+    listenerQueue: hominideos.florisience.entrada
+    retornoQueue: hominideos.florisience.retorno
+
+  denisovano:
+    listenerQueue: hominideos.denisovano.entrada
+    retornoQueue: hominideos.denisovano.retorno
+
+  habilis:
+    listenerQueue: hominideos.habilis.entrada
+    retornoQueue: hominideos.habilis.retorno
