@@ -1,5 +1,10 @@
 package com.hominideos.homo_sapiens.aux;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum TipoFolha {
 	SIMPLES("Folha com apenas uma lâmina por pecíolo"),
     COMPOSTA("Folha dividida em várias folíolos por pecíolo"),
@@ -24,21 +29,7 @@ public enum TipoFolha {
     AROMATICA("Possui aroma marcante, usada como tempero"),
     MEDICINAL("Utilizada em preparos medicinais ou chás"),
     TOXICA("Potencialmente tóxica ou venenosa para humanos");
-
-	private String descricao;
-
-	TipoFolha(String descricao) {
-		this.descricao = descricao;
-	}
 	
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-
+	private String descricao;	
 	
 }

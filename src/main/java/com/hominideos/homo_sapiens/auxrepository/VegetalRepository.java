@@ -8,4 +8,7 @@ import com.hominideos.homo_sapiens.aux.Vegetal;
 @Repository
 public interface VegetalRepository extends MongoRepository<Vegetal, String> {
 
+
+
+	
 }

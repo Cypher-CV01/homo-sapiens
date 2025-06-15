@@ -24,7 +24,7 @@ spring:
       host: localhost
       port: 27017
       username: javaluan
-      password: 123123
+      password: '123123'
       authentication-database: javaluan
 amqp:
     neandertal:
